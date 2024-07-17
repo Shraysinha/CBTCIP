@@ -1,6 +1,6 @@
-const apiKey = 'f38839830783b735341ef32b78a38659';  // Your actual API key
+const apiKey = 'f38839830783b735341ef32b78a38659';  
 
-// List of Indian city names (example, you may need a more exhaustive list)
+
 const cities = [
     'Mumbai', 'Delhi', 'Bangalore', 'Hyderabad', 'Ahmedabad', 'Chennai', 'Kolkata', 'Surat', 'Pune', 'Jaipur',
     'Lucknow', 'Kanpur', 'Nagpur', 'Indore', 'Thane', 'Bhopal', 'Visakhapatnam', 'Pimpri-Chinchwad', 'Patna', 'Vadodara',
@@ -18,17 +18,17 @@ const cities = [
     'Durg', 'Imphal', 'Ratlam', 'Hapur', 'Anantapur', 'Arrah', 'Karimnagar', 'Etawah', 'Ambarnath', 'North Dumdum', 'Bharatpur', 'Begusarai', 'New Delhi'
 ];
 
-// Array to store recent searches
+
 let recentSearches = [];
 
-// Function to initialize event listeners
+
 function initializeApp() {
     document.getElementById('get-weather-btn').addEventListener('click', handleWeatherSearch);
     document.getElementById('city-input').addEventListener('keydown', handleKeyPress);
     document.getElementById('city-input').addEventListener('input', showAutocompleteSuggestions);
 }
 
-// Function to handle weather search
+
 async function handleWeatherSearch() {
     const city = document.getElementById('city-input').value.trim();
     if (city) {
@@ -57,7 +57,7 @@ async function handleWeatherSearch() {
     }
 }
 
-// Function to handle key presses (Enter for search, Tab for autocomplete)
+
 function handleKeyPress(event) {
     if (event.key === 'Enter') {
         handleWeatherSearch();
@@ -66,18 +66,18 @@ function handleKeyPress(event) {
     }
 }
 
-// Function to handle autocomplete
+
 function handleAutocomplete(event) {
-    event.preventDefault(); // Prevent default tab behavior (switching focus)
+    event.preventDefault(); 
     const cityInput = document.getElementById('city-input');
     const inputValue = cityInput.value.trim().toLowerCase();
     const matchingCities = cities.filter(city => city.toLowerCase().startsWith(inputValue));
     if (matchingCities.length > 0) {
-        cityInput.value = matchingCities[0]; // Auto-complete with the first matching city
+        cityInput.value = matchingCities[0]; 
     }
 }
 
-// Function to show autocomplete suggestions
+
 function showAutocompleteSuggestions(event) {
     const inputValue = event.target.value.trim().toLowerCase();
     const matchingCities = cities.filter(city => city.toLowerCase().startsWith(inputValue));
@@ -99,7 +99,7 @@ function showAutocompleteSuggestions(event) {
     }
 }
 
-// Function to display weather details
+
 function displayWeather(data) {
     document.getElementById('city-name').textContent = data.name;
     document.getElementById('temperature').textContent = `Temperature: ${data.main.temp}°C`;
@@ -112,7 +112,7 @@ function displayWeather(data) {
     document.getElementById('additional-weather-details').classList.remove('hidden');
 }
 
-// Function to change background based on weather
+
 function changeBackground(weatherType) {
     let backgroundImageUrl;
     switch (weatherType.toLowerCase()) {
@@ -139,7 +139,7 @@ function changeBackground(weatherType) {
     document.body.style.backgroundImage = `url(${backgroundImageUrl})`;
 }
 
-// Function to add to recent searches
+
 function addToRecentSearches(data) {
     const recentSearchesContainer = document.getElementById('recent-searches-container');
     const searchItem = document.createElement('div');
@@ -188,7 +188,7 @@ function addToRecentSearches(data) {
     }
 }
 
-// Function to toggle loader visibility
+
 function toggleLoader(show) {
     const loader = document.getElementById('loader');
     if (show) {
@@ -198,5 +198,5 @@ function toggleLoader(show) {
     }
 }
 
-// Initialize the application
+
 initializeApp();
