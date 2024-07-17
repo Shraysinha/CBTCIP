@@ -8,7 +8,7 @@ body {
     color: rgb(111, 33, 33);
     transition: background-image 0.5s ease;
     margin: 0;
-    background-image: url('images/default-background.jpg'); /* Default background image */
+    background-image: url('images/default-background.jpg'); 
 }
 
 .container {
@@ -17,8 +17,8 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    margin: 100px auto; /* Center the container horizontally */
-    max-width: 550px; /* Adjust maximum width as needed */
+    margin: 100px auto; 
+    max-width: 550px; 
 }
 
 .weather-info {
@@ -59,7 +59,7 @@ img {
     padding: 20px;
     background: rgba(255, 255, 255, 0.2);
     text-align: center;
-    margin-top: 250px; /* Adjust margin top according to user preference */
+    margin-top: 250px; 
 }
 
 #recent-searches-container {
