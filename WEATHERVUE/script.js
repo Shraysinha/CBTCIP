@@ -78,28 +78,6 @@ function handleAutocomplete(event) {
 }
 
 
-function showAutocompleteSuggestions(event) {
-    const inputValue = event.target.value.trim().toLowerCase();
-    const matchingCities = cities.filter(city => city.toLowerCase().startsWith(inputValue));
-    const autocompleteList = document.getElementById('autocomplete-list');
-    autocompleteList.innerHTML = '';
-    if (matchingCities.length > 0) {
-        matchingCities.forEach(city => {
-            const li = document.createElement('li');
-            li.textContent = city;
-            li.addEventListener('click', () => {
-                document.getElementById('city-input').value = city;
-                autocompleteList.classList.add('hidden');
-            });
-            autocompleteList.appendChild(li);
-        });
-        autocompleteList.classList.remove('hidden');
-    } else {
-        autocompleteList.classList.add('hidden');
-    }
-}
-
-
 function displayWeather(data) {
     document.getElementById('city-name').textContent = data.name;
     document.getElementById('temperature').textContent = `Temperature: ${data.main.temp}°C`;
